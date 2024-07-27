@@ -2,8 +2,13 @@
 using namespace std;
 
 int main() {
-  int n;
+  long long n;
   cin >> n;
+
+  if (n == 1) {
+    cout << 1 << endl;
+    return 0;
+  }
 
   do {
     cout << n << " ";
@@ -15,4 +20,6 @@ int main() {
     }
   } while (n != 1);
   cout << 1 << endl;
+
+  return 0;
 }
