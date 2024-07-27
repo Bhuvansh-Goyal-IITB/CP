@@ -1,6 +1,6 @@
 #!/bin/env bash
 
-message=$1
+question_name=$1
 git add . &&
-git commit -m "$1" &&
+git commit -m "Added question: $question_name" &&
 git push -u origin main
