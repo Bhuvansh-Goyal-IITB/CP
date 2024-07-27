@@ -1,5 +1,5 @@
 CXX := g++
-CXXFLAGS := -Wall -Wextra -std=c++17
+CXXFLAGS := -Wall -O2 -std=c++11
 
 OUTPUT_DIR := ./out
 
