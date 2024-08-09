@@ -14,15 +14,15 @@ int main() {
     int n;
     cin >> n;
 
-    int num_odd = 0;
+    int total = 0;
     while (n--) {
       int val;
       cin >> val;
 
-      if (val & 1) num_odd++;
+      total += val;
     }
 
-    if (num_odd & 1) {
+    if (total & 1) {
       cout << "NO\n";
     } else {
       cout << "YES\n";
