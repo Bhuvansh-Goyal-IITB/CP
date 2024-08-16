@@ -10,24 +10,35 @@ int main() {
   int n;
   cin >> n;
 
-  vector<pair<int, int>> arr;
+  vector<int> arrival;
+  vector<int> departure;
+  int size = n;
 
   while (n--) {
     int a, l;
     cin >> a >> l;
 
-    arr.push_back({a, 1});
-    arr.push_back({l, -1});
+    arrival.push_back(a);
+    departure.push_back(l);
   }
 
-  sort(arr.begin(), arr.end());
+  sort(arrival.begin(), arrival.end());
+  sort(departure.begin(), departure.end());
 
   int curr_persons = 0;
   int max_persons = 0;
 
-  for (auto p : arr) {
-    curr_persons += p.second;
-    max_persons = max(max_persons, curr_persons);
+  int i = 0, j = 0;
+
+  while (i < size && j < size) {
+    if (arrival[i] < departure[j]) {
+      i++;
+      curr_persons++;
+      max_persons = max(curr_persons, max_persons);
+    } else {
+      j++;
+      curr_persons--;
+    }
   }
 
   cout << max_persons << "\n";
