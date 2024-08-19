@@ -10,21 +10,17 @@ int main() {
   int n;
   cin >> n;
 
-  vector<pair<int, int>> arr;
-  int index = 0;
-  while (n--) {
-    int val;
-    cin >> val;
+  vector<int> arr(n);
+  for (int i = 0; i < n; i++) cin >> arr[i];
 
-    arr.push_back({val, index++});
+  vector<bool> visited(n, false);
+  int ans = 1;
+
+  for (int i = 0; i < n; i++) {
+    visited[arr[i] - 1] = true;
+    if (arr[i] == n) continue;
+    if (visited[arr[i]]) ans++;
   }
 
-  sort(arr.begin(), arr.end());
-
-  int ans = 0;
-  for (auto it = arr.begin() + 1; it != arr.end(); it++) {
-    if (it->second < (it - 1)->second) ans++;
-  }
-
-  cout << ++ans << "\n";
+  cout << ans << "\n";
 }
